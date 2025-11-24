@@ -1,59 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cost-Cutter Item Listing System Full Project Package (Cost-Cutter)
+## 1. System Overview
+Cost-Cutter is a lightweight web-based marketplace platform built with Laravel, Blade templates, and Laravel Breeze authentication. Users can register, log in, create item listings with multiple images, and manage their postings through a simple and responsive interface. The platform targets small-scale buying and selling within controlled communities such as schools, organizations, or local barangays.
+Primary actors: User, Admin (optional for future features).
+## 2. Functional Requirements (summary)
+-User authentication via Laravel Breeze: register, login, and logout.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+-Item posting with title, description, price, condition, and images (single or multiple).
 
-## About Laravel
+-Item management: view, edit, and delete user’s own items.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-Item browsing: view all items and individual item details.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-Authorization: users can only modify or delete their own items; cannot access others’ listings.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-Responsive UI for desktop and mobile
+## 3. Non-Functional Requirements
+-Usability: Clean, minimal, and easy-to-navigate interface with readable forms and labels.
 
-## Learning Laravel
+-Performance: Fast page loads; reasonable image upload sizes.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+-Reliability: Consistent CRUD operations; proper database persistence.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-Security: Encrypted passwords, input validation, and restricted access to authenticated users.
 
-## Laravel Sponsors
+-Maintainability: Follows Laravel MVC structure; clear folder/file organization.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-Scalability: Handles growing users and item listings without major performance degradation.
 
-### Premium Partners
+-Compatibility: Works on major browsers (Chrome, Firefox, Edge) and mobile devices.
+## 4. High-Level Architecture
+Classic Laravel MVC application with Blade templates for the frontend.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Backend enforces authentication, authorization, and item CRUD operations.
 
-## Contributing
+Database: MySQL/MariaDB (SQLite allowed for development).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Optional future enhancements: admin panel, notifications, and advanced search filters.
+## 5. Data Model & ERD
+Entities: users, items, item_images.
 
-## Code of Conduct
+Relationships:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+[users] 1---* [items] 1---* [item_images]
+## 5. Laravel Structure
+laravel/structure.md outlines migrations (users, items, item_images) 
 
-## Security Vulnerabilities
+Eloquent models, controllers (AuthController, ItemController), policies, and routes (web.php) 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Includes pseudocode for CRUD operations with authorization.
